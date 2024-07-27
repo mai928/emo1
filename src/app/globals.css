@@ -2,15 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-
 
 body {
-
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
+.swiper-slide-custom {
+  position: relative;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  width: 300px;  /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* .image-container img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+} */
+
+.custom-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.swiper-slide-active {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.swiper-slide-next,
+.swiper-slide-prev {
+  transform: scale(0.8);
+  z-index: 1;
+}
+
+.swiper-slide {
+  margin-left: -150px; /* Adjust for overlap */
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(300px);
+  z-index: 9999;
+}

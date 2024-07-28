@@ -65,7 +65,7 @@ const Navbar = () => {
               </div>
 
               <div className='flex flex-1 justify-evenly px-44'>
-                {navbar.map((nav) => (
+                {navbar.map((nav,index) => (
                   <div key={nav.id} className='relative' onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave}>
                     <ul className='py-2 flex items-center gap-2'>
                       <li className='text-white'>
@@ -77,8 +77,8 @@ const Navbar = () => {
                     </ul>
                     {activeIndex === nav.id && nav.subcatagory && (
                       <div className='absolute left-0 top-full bg-black border-[1px] border-solid border-gray-800 rounded-lg  z-20'>
-                        {nav.subcatagory.map((item) => (
-                          <div>
+                        {nav.subcatagory.map((item,index) => (
+                          <div key={index}>
                             <ul className='py-2 p-5' key={item.title}>
                               <li className={`text-white`} ><Link href={'/'}>{item.title}</Link></li>
                             </ul>

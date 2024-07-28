@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { navbar } from '@/data/data';
-import logo from '../../public/assets/logo.png';
+import logo from '../../public/assets/logo.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -43,7 +43,7 @@ const Navbar = () => {
 
 
   return (
-    <section className='bg-black px-5 lg:px-40 py-3'>
+    <section className='bg-black px-5 lg:px-40'>
       {
         showmenuIcon === true ?
           (

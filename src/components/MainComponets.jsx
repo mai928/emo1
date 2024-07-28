@@ -2,9 +2,9 @@ import React from 'react'
 
 const MainComponets = () => {
   return (
-   <div className='relative w-full h-screen lg:h-full z-0'>
+   <div className='relative w-full h-screen z-0'>
         <video
-          className=" w-full h-full object-contain"
+          className=" w-full h-full object-cover"
           src='/video/swim.mp4'
           autoPlay
           loop

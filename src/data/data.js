@@ -32,12 +32,7 @@ export const navbar =[
         ]
         
     },
-    {
-        id:3,
-        name:'Buzz',
-        path:'/buzz'
-        
-    },{
+    ,{
         id:4,
         name:'Contact',
         path:'/contact'

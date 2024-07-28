@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { navbar } from '@/data/data';
-import logo from '../../public/assets/logo.jpg';
+import logo from '../../public/assets/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -101,7 +101,7 @@ const Navbar = () => {
 
       {/* sidebar */}
       <div>
-        <div className={`sidebar ${toggle ? "open" : ""}`}>
+        <div className={`sidebar ${toggle ? "open" : ""} `}>
           <div className="p-10">
             <div className="flex justify-between items-end mb-10">
               <Link href={'/'}><Image alt="logo" width={100} height={'auto'} src={logo} /></Link>
@@ -132,7 +132,7 @@ const Navbar = () => {
 
                     <Link
 
-                      className="text-secondary-500 text-xl font-semibold   hover:text-primary-500"
+                      className="text-white text-xl font-semibold   hover:text-primary-500"
                       href={item.path}
                       onClick={() => setToggle(false)}
                     >

@@ -12,6 +12,9 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        shelley: ['"Shelley Script LT Std"', 'cursive'],
+      },
       colors:{
         // primary_color:'#f7c35f',
         primary_color:'#8d2f3c',

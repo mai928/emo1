@@ -1,6 +1,10 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Playwrite+BE+VLG:wght@100..400&display=swap'); */
+@import '../styles/fonts.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 
 body {
@@ -70,4 +74,23 @@ box-sizing: border-box;
 .sidebar.open {
   transform: translateX(300px);
   z-index: 9999;
+}
+
+.text-auto-complete {
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #0e9ace; /* Cursor effect */
+  width: 0;
+  animation: typing 5s  steps(24, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 55%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  20% { border-color: #0e9ace; }
 }

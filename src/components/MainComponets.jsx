@@ -1,17 +1,12 @@
 import React from 'react'
+import Navbar from './Navbar'
+import MainVideo from './MainVideo'
 
 const MainComponets = () => {
   return (
-   <div className='relative w-full h-screen z-0'>
-        <video
-          className=" w-full h-full object-cover"
-          src='/video/swim.mp4'
-          autoPlay
-          loop
-          muted
-        />
-        <div className='absolute top-0 left-0 bg-opacity-50 bg-black w-full h-full' />
-      </div>
+   <section className='relative'>
+    <MainVideo/>
+   </section>
   )
 }
 

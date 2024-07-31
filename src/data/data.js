@@ -2,44 +2,59 @@
 export const navbar =[
     {
         id:1,
-        name:'Creations',
+        name:'HOME',
         path:'/',
-        subcatagory:[
-            {
-                title:'featured'
-            },
-            {
-                title:'structured'
-            },
-            {
-                title:'named'
-            },
-        ]
+        // subcatagory:[
+          
+        // ]
 
     },
     {
         id:2,
-        name:'Practice',
+        name:'ABOUT US',
         path:'/practice',
-        subcatagory:[
-        
-            {
-                title:'structured'
-            },
-            {
-                title:'named'
-            },
-        ]
+       
         
     },
     ,{
-        id:4,
-        name:'Contact',
+        id:3,
+        name:'OUR SERVICES',
         path:'/contact'
+		, 
+		subcatagory:[
+        
+            {
+                title:'SWIMMING POOLS'
+            },
+            {
+                title:'PROCURMENT & SUPPLY'
+            },
+            {
+                title:'HEALTH CLUBS EQUIPMENT (SAUNA CABINS ,SPA STREAM BATHS)'
+            },
+			{
+                title:'PLUMBING STATIONS'
+            },
+			{
+                title:'FIRE FIGHTING SYSTEMS'
+            },
+			{
+                title:'MAINTENANCE & OPERATION'
+            },
+			{
+                title:'WATER FEATURE INSTRUCTION'
+            },
+        ]
         
     },{
+        id:4,
+        name:'OUR PORTFOLIO',
+        path:'/career'
+        
+    }
+	,{
         id:5,
-        name:'Careers',
+        name:'CONTACT US',
         path:'/career'
         
     }

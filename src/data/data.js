@@ -12,7 +12,7 @@ export const navbar =[
     {
         id:2,
         name:'ABOUT US',
-        path:'/practice',
+        path:'/aboutUs',
        
         
     },
@@ -49,13 +49,13 @@ export const navbar =[
     },{
         id:4,
         name:'OUR PORTFOLIO',
-        path:'/career'
+        path:'/portfolio'
         
     }
 	,{
         id:5,
         name:'CONTACT US',
-        path:'/career'
+        path:'/contact'
         
     }
 ]

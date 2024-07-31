@@ -43,7 +43,7 @@ const Navbar = () => {
 
 
   return (
-    <section className=' px-5 lg:px-40 z-50 fixed top-0 left-0 right-0 bottom-0'>
+    <section className=' px-5 lg:px-40 z-10 fixed top-0 left-0 right-0 bottom-0'>
       {
         showmenuIcon === true ?
           (
@@ -91,7 +91,7 @@ const Navbar = () => {
                     navbar.map((nav, index) => (
                       <div>
                         {activeIndex === nav.id && nav.subcatagory && (
-                          <div className=' z-50 bg-slate-900 border-[1px] border-solid border-gray-800 rounded-lg  '>
+                          <div className=' z-10 bg-slate-900 border-[1px] border-solid border-gray-800 rounded-lg  '>
                             {nav.subcatagory.map((item, index) => (
                               <div key={index}>
                                 <ul className='py-2 p-5' key={item.title}>

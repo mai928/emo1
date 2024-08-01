@@ -13,7 +13,7 @@ const AboutUs = () => {
 
             </div>
             <div className='block lg:flex justify-between lg:gap-20 px-5 lg:px-28 py-20'>
-                <img src='/assets/about.jpg' />
+                <img className='w-full h-full' src='/assets/about.jpg' />
                 <div className='text-center lg:text-start'>
                     <h2 className='text-4xl font-bold   mt-5 lg:mt-0'>
                         About Emoco Egypt

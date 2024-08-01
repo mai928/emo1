@@ -88,7 +88,7 @@ handleFixed()
                 <div className='flex   gap-10 pt-6 relative'>
                   {navbar.map((nav, index) => (
                     <div key={nav.id} className='relative' onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave}>
-                      <ul className='py-2 flex items-center  '>
+                      <ul key={index} className='py-2 flex items-center  '>
                         <li className='text-wave_gray font-semibold  '>
                           <Link href={nav.path}>{nav.name}</Link>
                           <div>
@@ -108,7 +108,7 @@ handleFixed()
                 </div>
                 <div className='flex absolute '>
                   {
-                    navbar.map((nav, index) => (
+                    navbar.map((nav) => (
                       <div>
                         {activeIndex === nav.id && nav.subcatagory && (
                           <div  onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave} className=' z-10 bg-slate-900 border-[1px] border-solid border-gray-800 rounded-lg  '>

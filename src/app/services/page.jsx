@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
@@ -47,7 +48,7 @@ const Services = () => {
         <section className='h-full   w-full'>
             <div className='relative'>
                 <div >
-                    <img className='w-full h-[70vb] lg:h-full' src='/assets/web2.jpg' />
+                    <Image alt='img' className='w-full h-[70vb] lg:h-full' src='/assets/web2.jpg' />
 
                 </div>
                 <h1 className='absolute left-28 bottom-24 lg:bottom-32 lg:start-96 text-3xl lg:text-5xl  text-white'>Our Services</h1>

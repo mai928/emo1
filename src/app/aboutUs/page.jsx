@@ -1,4 +1,5 @@
 import Partner from '@/components/Partner'
+import Image from 'next/image'
 import React from 'react'
 
 const AboutUs = () => {
@@ -6,14 +7,14 @@ const AboutUs = () => {
         <section className='h-full   w-full'>
             <div className='relative'>
                 <div >
-                    <img className='w-full h-[70vb] lg:h-full' src='/assets/web2.jpg' />
+                    <Image alt='img' className='w-full h-[70vb] lg:h-full' src='/assets/web2.jpg' />
 
                 </div>
                 <h1 className='absolute left-28 bottom-24 lg:bottom-32 lg:start-96 text-3xl lg:text-5xl  text-white'>About Us</h1>
 
             </div>
             <div className='block lg:flex justify-between lg:gap-20 px-5 lg:px-28 py-20'>
-                <img className='w-full h-full' src='/assets/about.jpg' />
+                <Image alt='img' className='w-full h-full' src='/assets/about.jpg' />
                 <div className='text-center lg:text-start'>
                     <h2 className='text-4xl font-bold   mt-5 lg:mt-0'>
                         About Emoco Egypt

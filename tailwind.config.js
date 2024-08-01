@@ -19,7 +19,7 @@ module.exports = {
         // primary_color:'#f7c35f',
         primary_color:'#8d2f3c',
         // secondary_color:"#49a760",
-        secondary_color:"#0e9ace",
+        secondary_color:"#598fbb",   
         color_heading:'#04000b',
         dark_Green:'#1f4e3d',
         paragraph_color:'#666666',

@@ -18,9 +18,27 @@ const Navbar = () => {
 
   const [toggle, setToggle] = useState(false)
   const [showmenuIcon, setshowmenuIcon] = useState(false)
+	const [isFixed, setIsFixed] = useState(false);
+
+  
+	const handleFixed = () => {
+
+		const handleScroll = () => {
+			if (window.scrollY > 100) {
+				setIsFixed(true);
+			} else {
+				setIsFixed(false);
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}
 
   useEffect(() => {
-
+handleFixed()
     const handleSize = () => {
       if (window.innerWidth <= 1024) {
         setToggle(false)
@@ -43,7 +61,9 @@ const Navbar = () => {
 
 
   return (
-    <section className=' px-5 lg:px-40 z-10 fixed top-0 left-0 right-0 bottom-0'>
+    <section className= {`px-5 lg:px-40 z-10 fixed top-0 left-0 right-0 bottom-0  h-28  ${isFixed && 'bg-black fixed top-0 left-0 shadow-lg h-24'}`}>
+     
+     <div>
       {
         showmenuIcon === true ?
           (
@@ -61,7 +81,7 @@ const Navbar = () => {
           ) : (
             <div className={`flex justify-between ${showmenuIcon === true ? 'gap-20' : 'gap-0'}`}>
               <div>
-                <Image width={140} src={logo} alt='Logo' />
+                <Image className={`${isFixed && 'w-28'}`} width={140} src={logo} alt='Logo' />
               </div>
 
               <div>
@@ -91,7 +111,7 @@ const Navbar = () => {
                     navbar.map((nav, index) => (
                       <div>
                         {activeIndex === nav.id && nav.subcatagory && (
-                          <div className=' z-10 bg-slate-900 border-[1px] border-solid border-gray-800 rounded-lg  '>
+                          <div  onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave} className=' z-10 bg-slate-900 border-[1px] border-solid border-gray-800 rounded-lg  '>
                             {nav.subcatagory.map((item, index) => (
                               <div key={index}>
                                 <ul className='py-2 p-5' key={item.title}>
@@ -185,6 +205,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+     </div>
+      
     </section>
   );
 };

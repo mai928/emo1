@@ -19,7 +19,7 @@ export const navbar =[
     ,{
         id:3,
         name:'OUR SERVICES',
-        path:'/contact'
+        path:'/services'
 		, 
 		subcatagory:[
         

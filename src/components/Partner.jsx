@@ -9,51 +9,33 @@ import 'swiper/css/autoplay'
 import logo from '../../public/assets/logo.png';
 import Image from 'next/image';
 
+
 const Partner = () => {
-    const partner = [
+    const partners = [
         {
-            img: '/assets/logo.png'
-        }, {
-            img: '/assets/logo2.png'
-        }, {
-            img: '/assets/logo.jpg'
-        }, {
-            img: '/assets/emoco-remove.png'
-        }, {
-            img: '/assets/logo.png'
-        }, {
-            img: '/assets/logo2.png'
-        }, {
-            img: '/assets/logo.jpg'
-        }, {
-            img: '/assets/emoco-remove.png'
-        },
-        {
-            img: '/assets/logo.png'
-        }, {
-            img: '/assets/logo.png'
-        },
-        {
-            img: '/assets/logo.png'
-        }, {
-            img: '/assets/logo.png'
-        }, {
-            img: '/assets/logo.png'
-        }, {
-            img: '/assets/logo.png'
-        }, {
-            img: '/assets/logo.png'
-        }
+            src:'/assets/1.jpg'
+           },{
+            src:'/assets/2.jpg'
+           },{
+            src:'/assets/3.jpg'
+           },{
+            src:'/assets/4.jpg'
+           },{
+            src:'/assets/5.jpg'
+           },{
+            src:'/assets/6.jpg'
+           },{
+            src:'/assets/7.jpg'
+           },
     ]
 
 
 
     const breakpoints = {
-        // when window width is >= 320px
         1024: {
             slidesPerView: 4,
-            spaceBetween: 50,
-             centeredSlides: true,
+            spaceBetween: 1000,
+            //  centeredSlides: true,
 
         },
        
@@ -74,13 +56,6 @@ const Partner = () => {
             spaceBetween: 5,
             centeredSlides: true,
         },
-        // when window width is >= 480px
-
-        // when window width is >= 640px
-
-        // when window width is >= 1024px
-
-
     }
 
     // const breakpoints = {
@@ -106,28 +81,36 @@ const Partner = () => {
     //     },
     // };
     return (
-        <section className='px-5 lg:px-20 '>
-            <Swiper
-                slidesPerView={4}
-                spaceBetween={60}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                    reverseDirection: true
-                }}
-                loop={true}
-                modules={[Autoplay]}
-                breakpoints={breakpoints}
-            >
-                {partner.map((item, index) => (
-                    <SwiperSlide key={index} className="">
-                        <div>
-                            <img alt={`Logo ${index}`} className='w-36' src={item.img} />
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </section>
+        // <section className='px-5 lg:px-20 '>
+             <Swiper
+             className='overflow-auto'
+             modules={[Autoplay]}
+      spaceBetween={10}
+      slidesPerView={1}
+      loop={true}
+      autoplay={{delay:3000}}
+      breakpoints={{
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 100,
+        },
+      }}
+     
+    >
+      {partners.map((partner, index) => (
+        <SwiperSlide key={index}>
+          <img loading='eager' src={partner.src} alt={`Partner ${index + 1}`} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
     )
 }
 

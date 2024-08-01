@@ -56,8 +56,8 @@ const Services = () => {
             </div>
             <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  gap-16 lg:px-28 py-20'>
                 {
-                    servesData.map((item) => (
-                        <div className='border-[2px] border-solid border-gray-200 rounded-lg bg-slate-100'>
+                    servesData.map((item ,index) => (
+                        <div key={index} className='border-[2px] border-solid border-gray-200 rounded-lg bg-slate-100'>
                             <img className='rounded-t-lg' src={item.src} />
                             <div className='ms-3 my-5'>
                                 <h3 className='font-bold'>{item.title}</h3>

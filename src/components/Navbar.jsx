@@ -108,8 +108,8 @@ handleFixed()
                 </div>
                 <div className='flex absolute '>
                   {
-                    navbar.map((nav) => (
-                      <div>
+                    navbar.map((nav ,index) => (
+                      <div key={index}>
                         {activeIndex === nav.id && nav.subcatagory && (
                           <div  onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave} className=' z-10 bg-slate-900 border-[1px] border-solid border-gray-800 rounded-lg  '>
                             {nav.subcatagory.map((item, index) => (

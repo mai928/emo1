@@ -7,7 +7,7 @@ const Contact = () => {
     <section className='bg-white h-full  '>
       <div className='relative'>
         <div >
-          <Image alt='img'  src='/assets/web2.jpg' />
+        <Image alt='img' width={500} height={600} className='bg_img h-[70vb] lg:h-full' src='/assets/web2.jpg' />
 
         </div>
         <h1 className='absolute bottom-32 start-96 text-2xl lg:text-5xl  text-white'>Contact Us</h1>

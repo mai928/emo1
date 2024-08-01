@@ -6,14 +6,14 @@ const OurPortfolio = () => {
     <section className='h-full relative  w-full'>
             <div className='relative'>
                 <div >
-                    <Image alt='img' src='/assets/web2.jpg' />
+                <Image alt='img' width={500} height={600} className='bg_img h-[70vb] lg:h-full' src='/assets/web2.jpg' />
 
                 </div>
                 <h1 className='absolute bottom-32 start-96 text-2xl lg:text-5xl  text-white'>Our Portfolio</h1>
 
             </div>
             <div className='block lg:flex justify-between gap-20 px-5 lg:px-28 py-20'>
-                <Image alt='img' src='/assets/about.jpg' />
+                <Image width={500} height={600} className='bg_img' alt='img' src='/assets/about.jpg' />
                 <div>
                     <h2 className='text-4xl font-bold  '>
                     We Are Swimming Pool Builders and Swimming Pool Service Experts

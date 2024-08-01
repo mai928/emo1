@@ -48,7 +48,7 @@ const Services = () => {
         <section className='h-full   w-full'>
             <div className='relative'>
                 <div >
-                    <Image alt='img' className='w-full h-[70vb] lg:h-full' src='/assets/web2.jpg' />
+                <Image alt='img' width={500} height={600} className='bg_img h-[70vb] lg:h-full' src='/assets/web2.jpg' />
 
                 </div>
                 <h1 className='absolute left-28 bottom-24 lg:bottom-32 lg:start-96 text-3xl lg:text-5xl  text-white'>Our Services</h1>
@@ -58,7 +58,7 @@ const Services = () => {
                 {
                     servesData.map((item ,index) => (
                         <div key={index} className='border-[2px] border-solid border-gray-200 rounded-lg bg-slate-100'>
-                            <img className='rounded-t-lg' src={item.src} />
+                            <img alt='img' className='rounded-t-lg' src={item.src} />
                             <div className='ms-3 my-5'>
                                 <h3 className='font-bold'>{item.title}</h3>
                                 <p className='text-[15px]  py-3 text-gray-700 font-semibold'>{item.desc}</p>

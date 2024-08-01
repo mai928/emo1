@@ -107,7 +107,7 @@ const Partner = () => {
     >
       {partners.map((partner, index) => (
         <SwiperSlide key={index}>
-          <Image  src={partner.src} alt={`Partner ${index + 1}`} />
+          <Image width={400}  height={300} className='bg_img' src={partner.src} alt={`Partner ${index + 1}`} />
         </SwiperSlide>
       ))}
     </Swiper>

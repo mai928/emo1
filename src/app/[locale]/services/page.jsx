@@ -69,13 +69,24 @@ const Services = async({params}) => {
 
     return (
         <section className='h-full   w-full'>
-            <div className='relative'>
-                <div>
-                <Image alt='img' width={500} height={600} className='bg_img h-[70vb] lg:h-full' src='/assets/web2.jpg' />
-                </div>
-                <h1 className='absolute left-28 bottom-24 lg:bottom-32 lg:start-96 text-3xl lg:text-5xl  text-white'>{t("Our Services")}</h1>
-
-            </div>
+             <div className='relative w-full h-[55vh] lg:h-[60vh] '>
+    <Image
+        src='/assets/web2.jpg'
+        alt='img'
+        layout='fill'
+        objectFit='cover'
+        quality={100}
+        className='w-full h-full'
+        sizes="(max-width: 600px) 150vw,
+               (max-width: 1200px) 50vw,
+               "
+      />
+      <h1 className='absolute left-7 bottom-20 lg:bottom-32 lg:start-96 text-3xl lg:text-5xl text-white font-semibold'>
+           {t("Our Services")}
+      </h1>
+    </div>
+            
+        
             <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  gap-16 lg:px-28 py-20'>
                 {
                     servesData.map((item ,index) => (

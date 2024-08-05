@@ -98,12 +98,18 @@ box-sizing: border-box;
 }
 
 
-.bg_img{
+.bg-img{
   width: 100%;
   height: 100%;
 }
 
-.page_img {
-  /* width: 100%;
-  height: 50vh; */
+
+
+
+.black-filter {
+  filter: invert(0%) brightness(0%);
+}
+
+.gray-filter {
+  filter: grayscale(100%);
 }

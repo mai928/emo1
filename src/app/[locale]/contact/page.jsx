@@ -5,24 +5,32 @@ import React from 'react'
 const Contact = () => {
   return (
     <section className='bg-white h-full  w-full'>
-      <div className='relative'>
-        <div >
-        <img alt='img' className='w-[100%] min-h-60 lg:h-full object-cover' src='/assets/web2.jpg' />
+    <div className='relative w-full h-[55vh] lg:h-[60vh] '>
+    <Image
+        src='/assets/web2.jpg'
+        alt='img'
+        layout='fill'
+        objectFit='cover'
+        quality={100}
+        className='w-full h-full'
+        sizes="(max-width: 600px) 150vw,
+               (max-width: 1200px) 50vw,
+               "
+      />
+      <h1 className='absolute left-7 bottom-20 lg:bottom-32 lg:start-96 text-3xl lg:text-5xl text-white font-semibold'>
+        Contact Us
+      </h1>
+    </div>
 
-        </div>
-        <h1 className='absolute left-7 bottom-20 lg:bottom-32 lg:start-96 text-3xl lg:text-5xl  text-white   font-semibold '>Contact Us</h1>
-
-      </div>
-
-      <div className='pt-10 pb-20'>
+      <div className='pt-10 pb-24  px-5 lg:px-32'>
 
 
 
-        <div className=' block lg:flex gap-10 items-center px-5 lg:px-32 pt-10'>
+        <div className=' block lg:flex gap-10 items-center  '>
           {/* contact info */}
 
 
-          <form className=' w-full lg:w-2/3   '>
+          <form className=' w-full lg:w-2/3 pb-10 lg:pb-0 '>
             <div className='text-center'>
               <p className='text-slate-500  font-semibold'><span className='text-secondary_color text-2xl '>CONTACT</span> US</p>
               <p className='text-gray-500 text-sm my-1'>If you have question , feel free to get in touch</p>
@@ -93,7 +101,7 @@ const Contact = () => {
         </div>
 
         <div className='py-10'>
-          <div><iframe loading='lazy' className='w-[80%] h-[600px] m-auto' src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=4%20El-Obour%20St.,%20Salah%20Salem%20Road,%20Nasr%20City,%20Cairo.+(Emoco%20Egypt)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+          <div><iframe loading='lazy' className='w-[100%] h-[600px] m-auto' src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=4%20El-Obour%20St.,%20Salah%20Salem%20Road,%20Nasr%20City,%20Cairo.+(Emoco%20Egypt)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
         </div>
       </div>
 

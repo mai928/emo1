@@ -127,9 +127,9 @@ const Navbar =  () => {
                       navbar.map((nav, index) => (
                         <div key={index}>
                           {activeIndex === nav.id && nav.subcatagory && (
-                            <div onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave} className=' z-10 bg-slate-900 border-[1px] border-solid border-gray-800 rounded-lg  '>
+                            <div onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave} className=' z-10 bg-slate-900  border-[1px] border-solid border-gray-800 rounded-md  '>
                               {nav.subcatagory.map((item, index) => (
-                                <div key={index}>
+                                <div className='hover:bg-slate-500 rounded-t-sm ' key={index}>
                                   <ul className='py-2 p-5' key={item.title}>
                                     <li className={`text-white`} ><Link href={`/services/${decodeURIComponent(item.title)}`}>{t(item.title)}</Link></li>
                                   </ul>
@@ -230,3 +230,5 @@ const Navbar =  () => {
 };
 
 export default Navbar;
+
+

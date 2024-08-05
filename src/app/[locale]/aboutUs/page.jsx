@@ -11,14 +11,24 @@ const AboutUs = async({params}) => {
     const {t}= await initTranslations(locale ,i18nNamespaces)
     return (
         <section className='h-full   w-full'>
-            <div className='relative'>
-                <div >
-                <Image alt='img' width={500} height={600} className='bg_img h-[70vb] lg:h-full' src='/assets/web2.jpg' />
-
-                </div>
-                <h1 className='absolute left-28 bottom-24 lg:bottom-32 lg:start-96 text-3xl lg:text-5xl  text-white'>{t("About Us")}</h1>
-
-            </div>
+       <div className='relative w-full h-[55vh] lg:h-[60vh] '>
+    <Image
+        src='/assets/web2.jpg'
+        alt='img'
+        layout='fill'
+        objectFit='cover'
+        quality={100}
+        className='w-full h-full'
+        sizes="(max-width: 600px) 150vw,
+               (max-width: 1200px) 50vw,
+               "
+      />
+      <h1 className='absolute left-7 bottom-20 lg:bottom-32 lg:start-96 text-3xl lg:text-5xl text-white font-semibold'>
+      {t("About Us")}
+      </h1>
+    </div>
+            
+          
             <div className='block lg:flex justify-between lg:gap-20 px-5 lg:px-28 py-20'>
                 <Image alt='img' width={500} height={600}  className=' bg_img w-full h-full' src='/assets/about.jpg' />
                 <div className='text-center lg:text-start'>

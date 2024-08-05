@@ -5,7 +5,7 @@ const MainVideo = () => {
     <div className='w-full h-screen z-0 absolute top-0'>
       <video
         className=" w-full h-full object-cover"
-        src='/video/swim.mp4'
+        src='/video/main.mp4'
         autoPlay
         loop
         muted

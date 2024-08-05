@@ -1,6 +1,7 @@
 'use client'
 import { portfolio } from '@/data/data'
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 const OurPortfolio = () => {
@@ -32,47 +33,55 @@ const OurPortfolio = () => {
                 </div>
             </div>
 
+            <div className='px-5 lg:px-28 pb-32'>
+                <div className='flex justify-between items-center py-10 '>
+                    {
+                        portfolio.map((item, index) => (
+                            <div onClick={() => handleCatagory(index)} key={index} className='text-center cursor-pointer'>
+                                <div className=''> {item.icon}</div>
+                                <p>{item.name}</p>
 
-            <div className='flex justify-between items-center pb-32 px-28'>
-                {
-                    portfolio.map((item, index) => (
-                        <div onClick={() => handleCatagory(index)} key={index} className='text-center cursor-pointer'>
-                            <div className=''> {item.icon}</div>
-                            <p>{item.name}</p>
+                            </div>
+                        ))
+                    }
+                </div>
 
-                        </div>
-                    ))
-                }
-            </div>
+                <div>
+                    {
+                        portfolio.map((items, index) => (
+                            <div>
+                                {items.Catagory && activeIndex === index && (
+                                    <div className='flex '>
+                                        {
+                                            items.Catagory.map((sub) => (
+                                                <div className='flex justify-between gap-32 '>
+                                                    <p className='w-[40%]'>{sub.desc}</p>
 
-            <div>
-                {
-                    portfolio.map((items, index) => (
-                        <div>
-                            {items.Catagory && activeIndex === index &&(
-                                <div className='flex '>
-                                    {
-                                        items.Catagory.map((sub)=>(
-                                            <div >
-                                                <p>{sub.desc}</p>
-                                                {
-                                                    sub.subcatagory.map((item)=>(
-                                                        <div>
-                                                            <Image alt='img' width={300} height={300} src={item.image}/>
-                                                            <p>{item.title}</p>
-                                                        </div>
-                                                    ))
-                                                }
+                                                    <div className='flex flex-1 gap-10'>{
+                                                        sub.subcatagory.map((item) => (
+                                                            <div>
+                                                                <Image alt='img' width={300} height={300} src={item.image} />
+                                                                <p>{item.title}</p>
+                                                                <div className='my-5'>
+
+                                                                    <Link className='bg-secondary_color text-white px-10 py-3 ' href={'/'}>more info</Link>
+                                                                </div>  </div>
+                                                        ))
+                                                    }
+                                                    </div>
                                                 </div>
-                                        ))
-                                    }
-                                </div>
-                            )}
+                                            ))
+                                        }
+                                    </div>
+                                )}
 
-                        </div>
-                    ))
-                }
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
+
+
         </section>
     )
 }

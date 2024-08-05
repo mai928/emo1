@@ -5,11 +5,14 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 const OurPortfolio = () => {
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeCatgory, setActive] = useState(false)
 
     const handleCatagory = (id) => {
         setActiveIndex(id)
+        setActive(true)
     }
+
     return (
         <section className='h-full relative  w-full'>
             <div className='relative'>
@@ -32,14 +35,14 @@ const OurPortfolio = () => {
                         EMOCO has get use of the long accumulated and extensive experiences and know how gained from over 25 years of extensive working experiences in the market. We do believe that the well planned and good engineered projects -if supervised with experienced and professional project management- should meet the best execution performance, the optimum cost effectiveness and accordingly customer satisfaction and success on the long term. Based on this concept, EMOCO has invested both financial and human resources to build a back-bone of technical know-how and supporting engineering facilities to fulfill this part of our commitments towards our customers.</p>
                 </div>
             </div>
-
-            <div className='px-5 lg:px-28 pb-32'>
-                <div className='flex justify-between items-center py-10 '>
+            <div className='text-center px-28'>
+                <p className='text-4xl font-bold py-3'>Pool Models </p>
+                <div className='flex justify-between items-center pb-32 px-28'>
                     {
                         portfolio.map((item, index) => (
-                            <div onClick={() => handleCatagory(index)} key={index} className='text-center cursor-pointer'>
-                                <div className=''> {item.icon}</div>
-                                <p>{item.name}</p>
+                            <div onClick={() => handleCatagory(index)} key={index} className={`text-center cursor-pointer ${activeCatgory === true ? 'text-black' : 'text-gray-600'}`}>
+                                <div className={`${activeCatgory === true && index === activeIndex ? 'fill-black' : 'fill-gray-600'}`}> {item.icon}</div>
+                                <p className={`py-2 text-sm font-semibold ${activeCatgory === true && index === activeIndex ? 'text-black' : 'text-gray-600'}`}>{item.name}</p>
 
                             </div>
                         ))
@@ -51,24 +54,21 @@ const OurPortfolio = () => {
                         portfolio.map((items, index) => (
                             <div>
                                 {items.Catagory && activeIndex === index && (
-                                    <div className='flex '>
+                                    <div className='flex gap-32 '>
                                         {
                                             items.Catagory.map((sub) => (
-                                                <div className='flex justify-between gap-32 '>
-                                                    <p className='w-[40%]'>{sub.desc}</p>
+                                                <div className='flex w-full gap-14'>
+                                                    <p className='w-1/3'>{sub.desc}</p>
 
-                                                    <div className='flex flex-1 gap-10'>{
+                                                    <div className='flex gap-10 w-2/3'>{
                                                         sub.subcatagory.map((item) => (
                                                             <div>
                                                                 <Image alt='img' width={300} height={300} src={item.image} />
                                                                 <p>{item.title}</p>
-                                                                <div className='my-5'>
-
-                                                                    <Link className='bg-secondary_color text-white px-10 py-3 ' href={'/'}>more info</Link>
-                                                                </div>  </div>
+                                                            </div>
                                                         ))
-                                                    }
-                                                    </div>
+                                                    }</div>
+
                                                 </div>
                                             ))
                                         }

@@ -340,7 +340,7 @@ const ModelPortfolio = () => {
     <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-7  gap-20 items-center  px-16'>
         {
             portfolio.map((item, index) => (
-                <div>
+                <div key={index}>
 
                     <div onClick={() => {
                         handleCatagory(index)

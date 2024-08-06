@@ -103,7 +103,7 @@ const Services = async({params}) => {
     </div>
             
         
-            <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  gap-16 lg:px-28 py-20'>
+            <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  gap-16 px-10 lg:px-28 py-20'>
                 {
                     servesData.map((item ,index) => (
                         <div key={index} className='border-[2px] border-solid border-gray-200 rounded-lg bg-slate-100'>

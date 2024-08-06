@@ -1,3 +1,4 @@
+import initTranslations from '@/app/i18n'
 import Form from '@/components/Form'
 import Image from 'next/image'
 import Link from 'next/link'

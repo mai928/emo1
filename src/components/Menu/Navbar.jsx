@@ -5,8 +5,6 @@ import logo from '../../../public/assets/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import LanguageChanger from '../LanguageChanger';
-import initTranslations from '@/app/i18n';
-import Sidebar from './Sidebar';
 import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
@@ -24,7 +22,7 @@ const Navbar = () => {
 
   const [toggle, setToggle] = useState(false)
   const [showmenuIcon, setshowmenuIcon] = useState(false)
-  const [isFixed, setIsFixed] = useState(false);
+  const [isFixed, setIsFixed] = useState(true);
 
 
   const handleFixed = () => {
@@ -42,6 +40,9 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }
+
+
+ 
 
   useEffect(() => {
     handleFixed()
@@ -66,10 +67,7 @@ const Navbar = () => {
 
   }, [])
 
-  handleFixed()
-
-
-
+ 
 
   return (
     <section className={`px-5 lg:px-40 z-10 fixed top-0 left-0 right-0 bottom-0  h-28  ${isFixed && 'bg-black fixed top-0 left-0 shadow-lg h-24'}`}>

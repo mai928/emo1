@@ -1,3 +1,4 @@
+import initTranslations from '@/app/i18n'
 import Image from 'next/image'
 import React from 'react'
 

@@ -9,7 +9,7 @@ import initTranslations from '@/app/i18n';
 import Sidebar from './Sidebar';
 import { useTranslation } from 'react-i18next';
 
-const Navbar =  () => {
+const Navbar = () => {
 
   const { t } = useTranslation()
   const [activeIndex, setActiveIndex] = useState(null);
@@ -44,6 +44,9 @@ const Navbar =  () => {
   }
 
   useEffect(() => {
+    handleFixed()
+
+
     const handleSize = () => {
       if (window.innerWidth <= 1024) {
         setToggle(false)
@@ -54,7 +57,6 @@ const Navbar =  () => {
       }
     }
 
-    handleFixed()
 
     handleSize()
     window.addEventListener('resize', handleSize)
@@ -159,10 +161,10 @@ const Navbar =  () => {
         <div>
           <div className={`sidebar ${toggle ? "open" : ""} `}>
             <div className="p-10">
-              <div className="flex justify-between items-end mb-10">
+              <div className="flex justify-between items-center mb-10">
                 <Link href={'/'}><Image alt="logo" width={100} height={'auto'} src={logo} /></Link>
                 <h1
-                  className="cursor-pointer p-1 px-3 rounded-full bg-primary_color font-semibold text-white-300"
+                  className="cursor-pointer p-1 px-3 rounded-full text-white  bg-secondary_color font-semibold text-white-300"
                   onClick={() => setToggle(false)}
                 >
                   x
@@ -170,21 +172,21 @@ const Navbar =  () => {
               </div>
 
               <ul>
-                {navbar.map((item) => (
-                  <div key={item.name} className="flex items-center mt-7">
+                {navbar.map((item ,index) => (
+                  <div onMouseEnter={() => handleMouseEnter(item.id)} onMouseLeave={handleMouseLeave} key={item.name} className="flex items-center mt-7">
                     <div className="p-1 bg-white-400 rounded-full me-4">
                       <svg
 
                         xmlns="http://www.w3.org/2000/svg"
                         width={13}
                         height={13}
-                        className="fill-primary_color  "
+                        className="fill-secondary_color  "
                         viewBox="0 0 320 512"
                       >
                         <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
                       </svg>
                     </div>
-                    <li>
+                    <li className='relative'>
 
                       <Link
 
@@ -195,6 +197,25 @@ const Navbar =  () => {
                         {item.name}
                       </Link>
                     </li>
+
+                    <div className='flex absolute bottom-0' key={index}>
+                      {activeIndex === item.id && item.subcatagory && (
+                        <div onMouseEnter={() => handleMouseEnter(item.id)} onMouseLeave={handleMouseLeave} className=' z-10 bg-slate-900  border-[1px] border-solid border-gray-800 rounded-md  '>
+                          {item.subcatagory.map((item, index) => (
+                            <div className='hover:bg-slate-500 rounded-t-sm ' key={index}>
+                              <ul className='py-2 p-5' key={item.title}>
+                                <li className={`text-white`} ><Link href={`/services/${decodeURIComponent(item.title)}`}>{t(item.title)}</Link></li>
+                              </ul>
+
+                              <div className={`${'border-b-[1px] border-solid border-gray-500 text-white'}`} />
+
+                            </div>
+
+
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                 ))}
@@ -207,7 +228,7 @@ const Navbar =  () => {
                     xmlns="http://www.w3.org/2000/svg"
                     width={13}
                     height={13}
-                    className="fill-primary_color  "
+                    className="fill-secondary_color  "
                     viewBox="0 0 320 512"
                   >
                     <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
@@ -215,6 +236,8 @@ const Navbar =  () => {
 
 
                 </div>
+                <LanguageChanger />
+
 
 
               </div>
@@ -222,7 +245,6 @@ const Navbar =  () => {
           </div>
         </div>
 
-        {/* <Sidebar/> */}
       </div>
 
     </section>

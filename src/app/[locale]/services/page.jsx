@@ -4,6 +4,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
+
+
+
+export async function generateMetadata({ params }) {
+    const { locale } = params
+
+    return {
+        title: locale === 'ar' ? 'المقالات | دكتور خالد النمرسي' : locale === 'en' ? "Blogs | Dr Khaled Elnomrosy" : locale === 'fr' ? 'french':'language',
+        description:  locale === 'ar' ? 'المقالات | دكتور خالد النمرسي' : locale === 'en' ? "Blogs | Dr Khaled Elnomrosy" : locale === 'fr' ? 'french':'language',
+        other: {
+            title: locale === 'ar' ? 'المقالات | دكتور خالد النمرسي' : locale === 'en' ? "Blogs | Dr Khaled Elnomrosy" : locale === 'fr' ? 'french':'language',
+        }
+
+    }
+}
+
 const Services = async({params}) => {
     const i18nNamespaces = ["home"];
     const {locale}=params
@@ -91,7 +107,7 @@ const Services = async({params}) => {
                 {
                     servesData.map((item ,index) => (
                         <div key={index} className='border-[2px] border-solid border-gray-200 rounded-lg bg-slate-100'>
-                            <img alt='img' className='rounded-t-lg' src={item.src} />
+                            <Image  width={500} height={500} alt='img' className=' rounded-t-lg' src={item.src} />
                             <div className='ms-3 my-5'>
                                 <h3 className='font-bold'>{t(item.title)}</h3>
                                 {/* <p className='text-[15px]  py-3 text-gray-700 font-semibold'>{t(item.desc)}</p> */}

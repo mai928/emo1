@@ -30,16 +30,19 @@ export default async function RootLayout({ children, params }) {
   const { resources, t } = await initTranslations(locale, i18nNamespaces)
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body className="relative">
+      <body className="">
       
         <TranslationsProvider
         namespaces={i18nNamespaces}
         locale={locale}
         resources={resources}
         >
-          <Navbar/>
+          <section className="relative">
+             <Navbar/>
           {children}
           <Footer />
+          </section>
+         
         </TranslationsProvider>
 
       </body>

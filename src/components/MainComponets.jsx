@@ -3,7 +3,7 @@ import MainVideo from './MainVideo'
 
 const MainComponets = () => {
   return (
-   <section className='lg:h-screen'>
+   <section className='h-screen'>
     <MainVideo/>
    </section>
   )

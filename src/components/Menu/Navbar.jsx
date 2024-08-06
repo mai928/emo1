@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const [toggle, setToggle] = useState(false)
   const [showmenuIcon, setshowmenuIcon] = useState(false)
-  const [isFixed, setIsFixed] = useState(true);
+  const [isFixed, setIsFixed] = useState(false);
 
 
   const handleFixed = () => {
@@ -45,6 +45,13 @@ const Navbar = () => {
  
 
   useEffect(() => {
+
+    if (window.scrollY >= 100) {
+      setIsFixed(true);
+    } else {
+      setIsFixed(false);
+    }
+    
     handleFixed()
 
 

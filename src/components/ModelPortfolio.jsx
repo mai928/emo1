@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react'
 
@@ -347,7 +348,7 @@ const ModelPortfolio = () => {
                         setActive(!false)
                     }} key={index} className={`text-center cursor-pointer ${activeCatgory === true ? 'text-black' : 'text-gray-600'}`}>
                         {/* <div className={`${activeCatgory === true && index === activeIndex && item.Catagory ? 'fill-red-600' : 'fill-blue-900'}`}> {item.icon}</div> */}
-                        <Image width={100} height={10} className={`m-auto ${activeCatgory === true && index === activeIndex ? 'filter invert-0 brightness-0 font-semibold text-lg'
+                        <Image alt='img' width={100} height={10} className={`m-auto ${activeCatgory === true && index === activeIndex ? 'filter invert-0 brightness-0 font-semibold text-lg'
                             : 'filter grayscale-[100%]'}`} src={item.icon} />
                         <p className={`py-2 text-sm font-semibold ${activeCatgory === true && index === activeIndex ? 'text-black font-semibold text-lg' : 'text-gray-600'}`}>{item.name}</p>
 
@@ -362,8 +363,8 @@ const ModelPortfolio = () => {
                                         <p className='w-full lg:w-1/3 text-slate-600'>{sub.desc}</p>
 
                                         <div className=' block lg:flex gap-10 w-full lg:w-2/3'>{
-                                            sub.subcatagory.map((item) => (
-                                                <div>
+                                            sub.subcatagory.map((item ,index) => (
+                                                <div key={index}>
                                                     <Image alt='img' width={500} height={500} src={item.image} />
                                                     <p className='text-xl py-3 font-semibold'>{item.title}</p>
                                                     <div className='my-3'>
@@ -400,8 +401,8 @@ const ModelPortfolio = () => {
                                         <p className='w-full lg:w-1/3 text-slate-600'>{sub.desc}</p>
 
                                         <div className=' block lg:flex gap-10 w-full lg:w-2/3'>{
-                                            sub.subcatagory.map((item) => (
-                                                <div>
+                                            sub.subcatagory.map((item ,index) => (
+                                                <div key={index}>
                                                     <Image alt='img' width={500} height={500} src={item.image} />
                                                     <p className='text-xl py-3 font-semibold'>{item.title}</p>
                                                     <div className='my-3'>

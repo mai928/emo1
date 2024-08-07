@@ -51,6 +51,16 @@ export const navbar = [
 		name: "CONTACT US",
 		path: "/contact",
 	},
+	{
+		id: 6,
+		name: "Branches",
+		path: "/branch",
+		subcatagory: [
+			{
+				title: "EMOCO Senegal",
+			},
+		]
+	}
 ];
 
 export const portfolio = [

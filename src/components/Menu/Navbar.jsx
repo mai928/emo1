@@ -6,9 +6,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import LanguageChanger from '../LanguageChanger';
 import { useTranslation } from 'react-i18next';
+import { useParams, usePathname } from 'next/navigation';
 
 const Navbar = () => {
 
+  const path = usePathname()
+  const newpath = path.startsWith('/') ? path.slice(1) : path
+  console.log(newpath)
   const { t } = useTranslation()
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -41,8 +45,9 @@ const Navbar = () => {
     };
   }
 
-
- 
+ const generateLink = (basePath, title) => {
+  return `${basePath}/${encodeURIComponent(title)}`;
+};
 
   useEffect(() => {
 
@@ -51,7 +56,7 @@ const Navbar = () => {
     } else {
       setIsFixed(false);
     }
-    
+
     handleFixed()
 
 
@@ -74,10 +79,10 @@ const Navbar = () => {
 
   }, [])
 
- 
+
 
   return (
-    <section className={`px-5 lg:px-40 z-10 fixed top-0 left-0 right-0 bottom-0  h-28  ${isFixed && 'bg-black fixed top-0 left-0 shadow-lg h-24'}`}>
+    <section className={`px-5 lg:px-28 z-10 fixed top-0 left-0 right-0 bottom-0  h-28  ${isFixed && 'bg-black fixed top-0 left-0 shadow-lg h-24'}`}>
 
       <div>
         {
@@ -101,11 +106,11 @@ const Navbar = () => {
                 </div>
 
                 <div>
-                  <div className='flex   gap-10 pt-6 relative'>
+                  <div className='flex   gap-6 pt-6 relative'>
                     {navbar.map((nav, index) => (
-                      <div key={nav.id} className='relative' onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave}>
+                      <div key={nav.id} className='' onMouseEnter={() => handleMouseEnter(nav.id)} >
                         <ul key={index} className='py-2 flex items-center  '>
-                          <li className='text-wave_gray font-semibold  '>
+                          <li className='text-wave_gray font-semibold  relative '>
                             <Link href={nav.path}>{t(nav.name)}</Link>
                             <div>
                               {
@@ -113,6 +118,30 @@ const Navbar = () => {
                               }
                             </div>
                           </li>
+
+                          <div onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave} className='absolute flex top-20' key={index}>
+                            {activeIndex === nav.id && nav.subcatagory && (
+                              <div className=' z-10 bg-slate-900  border-[1px] border-solid border-gray-800 rounded-md  '>
+                                {nav.subcatagory.map((item, index) => (
+                                  <div className='hover:bg-slate-500 rounded-t-sm ' key={index}>
+                                    <ul className='py-2 p-5' key={item.title}>
+                                         
+                                      <li className={`text-white`} >
+                                      <Link href={generateLink(nav.path, item.title)}>{t(item.title)}</Link>
+                                      </li>
+                                    </ul>
+
+                                    <div className={`${'border-b-[1px] border-solid border-gray-500 text-white'}`} />
+
+                                  </div>
+
+
+                                ))}
+                              </div>
+                            )}
+                          </div>
+
+
 
 
                           {
@@ -123,37 +152,16 @@ const Navbar = () => {
                         </ul>
 
 
+
+
                       </div>
                     ))}
+
                     <div>
                       <LanguageChanger />
                     </div>
                   </div>
-                  <div className='flex absolute '>
-                    {
-                      navbar.map((nav, index) => (
-                        <div key={index}>
-                          {activeIndex === nav.id && nav.subcatagory && (
-                            <div onMouseEnter={() => handleMouseEnter(nav.id)} onMouseLeave={handleMouseLeave} className=' z-10 bg-slate-900  border-[1px] border-solid border-gray-800 rounded-md  '>
-                              {nav.subcatagory.map((item, index) => (
-                                <div className='hover:bg-slate-500 rounded-t-sm ' key={index}>
-                                  <ul className='py-2 p-5' key={item.title}>
-                                    <li className={`text-white`} ><Link href={`/services/${decodeURIComponent(item.title)}`}>{t(item.title)}</Link></li>
-                                  </ul>
 
-                                  <div className={`${'border-b-[1px] border-solid border-gray-500 text-white'}`} />
-
-                                </div>
-
-
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      ))
-                    }
-
-                  </div>
                 </div>
 
 
@@ -177,7 +185,7 @@ const Navbar = () => {
               </div>
 
               <ul>
-                {navbar.map((item ,index) => (
+                {navbar.map((item, index) => (
                   <div onMouseEnter={() => handleMouseEnter(item.id)} onMouseLeave={handleMouseLeave} key={item.name} className="flex items-center mt-7">
                     <div className="p-1 bg-white-400 rounded-full me-4">
                       <svg
